@@ -1,29 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import TradingApp from './App.jsx'
-import './index.css'
-
-function setVh() {
-  const isStandalone = ('standalone' in navigator && navigator.standalone === true) || window.matchMedia('(display-mode: standalone)').matches;
-  const h = isStandalone ? window.screen.height : window.innerHeight;
-  document.documentElement.style.setProperty('--app-height', `${h}px`);
-  document.documentElement.style.setProperty('--vh', `${h * 0.01}px`);
-}
-
-setVh();
-window.addEventListener('load', setVh);
-window.addEventListener('pageshow', setVh);
-window.addEventListener('resize', setVh);
-window.addEventListener('orientationchange', () => setTimeout(setVh, 300));
-
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').catch(() => {});
-  });
-}
+import App from './App.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <TradingApp />
-  </React.StrictMode>
+    <App />
+  </React.StrictMode>,
 )

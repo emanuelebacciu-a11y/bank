@@ -1619,7 +1619,7 @@ function AccountPill({C,accounts,activeAccountId,setActiveAccountId}) {
   if(!current) return null;
 
   return (
-    <div style={{position:'relative',zIndex:40}}>
+    <div style={{position:'relative'}}>
       <button onClick={()=>{setOpen(o=>!o);haptic.selection();}} className="rv-btn" style={{
         display:'flex',alignItems:'center',gap:6,padding:'5px 10px',
         background:C.glass2,border:`0.5px solid ${C.sep2}`,borderRadius:RADIUS.pill,
@@ -1745,10 +1745,9 @@ export default function App() {
       />
 
       {/* HEADER — identico a XAUTrader: overflow:hidden, transform translateY(-6px) */}
-      <header className="sticky z-30 overflow-visible" style={{
+      <header className="sticky z-30 overflow-hidden" style={{
         top: 0,
         transform: 'translateY(0)',
-        zIndex: 30,
         background: scheme==='dark'?'rgba(0,0,0,0.48)':'rgba(255,255,255,0.58)',
         backdropFilter: 'saturate(200%) blur(32px)',
         WebkitBackdropFilter: 'saturate(200%) blur(32px)',
